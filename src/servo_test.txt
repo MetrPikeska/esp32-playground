@@ -1,0 +1,32 @@
+// JEDNODUCHÝ TEST SERVO - bez WiFi
+#include <ESP32Servo.h>
+
+Servo myServo;
+const int servoPin = 19;
+
+void setup() {
+  Serial.begin(115200);
+  Serial.println("Servo Test - MG90S");
+  
+  // Attach servo
+  myServo.attach(servoPin, 544, 2400);
+  delay(100);
+  
+  Serial.println("Moving to 90 degrees...");
+  myServo.write(90);
+  delay(2000);
+}
+
+void loop() {
+  Serial.println("0 degrees");
+  myServo.write(0);
+  delay(2000);
+  
+  Serial.println("90 degrees");
+  myServo.write(90);
+  delay(2000);
+  
+  Serial.println("180 degrees");
+  myServo.write(180);
+  delay(2000);
+}
